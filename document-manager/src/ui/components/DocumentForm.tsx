@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   TextField,
   Button,
@@ -11,8 +11,14 @@ type DocumentData = {
   name: string;
   type: string;
   date: string;
-  file: string; // base64 o Blob URL
+  file: string; // base64
   description: string;
+  status?: string;
+};
+
+type DocumentType = {
+  id: string;
+  name: string;
 };
 
 const allowedExtensions = ['pdf', 'jpg', 'jpeg', 'png'];
@@ -25,7 +31,15 @@ const DocumentForm = () => {
     description: '',
     file: null as File | null,
   });
+  const [documentTypes, setDocumentTypes] = useState<DocumentType[]>([]);
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    const storedTypes = localStorage.getItem('documentTypes');
+    if (storedTypes) {
+      setDocumentTypes(JSON.parse(storedTypes));
+    }
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -74,9 +88,9 @@ const DocumentForm = () => {
       date: form.date,
       description: form.description,
       file: fileBase64,
+      status: 'Activo',
     };
 
-    // Guardar en localStorage
     const storedDocs = JSON.parse(localStorage.getItem('documents') || '[]');
     storedDocs.push(newDocument);
     localStorage.setItem('documents', JSON.stringify(storedDocs));
@@ -95,13 +109,38 @@ const DocumentForm = () => {
     <Box component="form" onSubmit={handleSubmit} sx={{ maxWidth: 500, mx: 'auto', display: 'flex', flexDirection: 'column', gap: 2 }}>
       <Typography variant="h6">Nuevo Documento</Typography>
       <TextField label="Nombre" name="name" value={form.name} onChange={handleChange} required />
-      <TextField label="Tipo de Documento" name="type" value={form.type} onChange={handleChange} select required>
-        <MenuItem value="Factura">Factura</MenuItem>
-        <MenuItem value="Contrato">Contrato</MenuItem>
-        <MenuItem value="Informe">Informe</MenuItem>
+      <TextField
+        label="Tipo de Documento"
+        name="type"
+        value={form.type}
+        onChange={handleChange}
+        select
+        required
+      >
+        {documentTypes.map((type) => (
+          <MenuItem key={type.id} value={type.name}>
+            {type.name}
+          </MenuItem>
+        ))}
       </TextField>
-      <TextField label="Fecha de creación" type="date" name="date" value={form.date} onChange={handleChange} InputLabelProps={{ shrink: true }} required />
-      <TextField label="Descripción" name="description" value={form.description} onChange={handleChange} multiline rows={3} required />
+      <TextField
+        label="Fecha de creación"
+        type="date"
+        name="date"
+        value={form.date}
+        onChange={handleChange}
+        InputLabelProps={{ shrink: true }}
+        required
+      />
+      <TextField
+        label="Descripción"
+        name="description"
+        value={form.description}
+        onChange={handleChange}
+        multiline
+        rows={3}
+        required
+      />
       <Button variant="outlined" component="label">
         Seleccionar archivo
         <input type="file" accept=".pdf,.jpg,.jpeg,.png" hidden onChange={handleFileChange} />
