@@ -55,20 +55,20 @@
   <!-- Autores -->
   <div id="seccion-autores" class="mt-3 d-none">
     <h3>✍️ Lista de Autores</h3>
-    <button class="btn btn-success mb-2" onclick="cargarAutores()">🔄 Ver autores</button>
+    <button class="btn btn-success mb-2" onclick="fetchAutoresSelect()">🔄 Ver autores</button>
     <div id="lista-autores" class="table-responsive"></div>
   </div>
 
   <!-- Categorías -->
   <div id="seccion-categorias" class="mt-3 d-none">
     <h3>🏷️ Lista de Categorías</h3>
-    <button class="btn btn-success mb-2" onclick="cargarCategorias()">🔄 Ver categorías</button>
+    <button class="btn btn-success mb-2" onclick="fetchCategoriasSelect()">🔄 Ver categorías</button>
     <div id="lista-categorias" class="table-responsive"></div>
   </div>
 
   <!-- Scripts -->
   <script src="js/libros.js"></script>
-  <script src="js/autores.js"></script>
+  <script src="js/autores.js"></script> 
   <script src="js/categorias.js"></script>
   <script>
     function mostrar(nombre) {

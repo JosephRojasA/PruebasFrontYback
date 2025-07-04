@@ -39,14 +39,22 @@ function cargarLibros() {
 }
 
 function guardarLibro() {
+  const titulo = document.getElementById('titulo').value;
+  const autorId = parseInt(document.getElementById('autorId').value);
+  const categoriaId = parseInt(document.getElementById('categoriaId').value);
+
+  if (!titulo || isNaN(autorId) || isNaN(categoriaId)) {
+    alert("❌ Por favor complete todos los campos correctamente.");
+    return;
+  }
+
   const libro = {
-    titulo: document.getElementById('titulo').value,
-    autorId: parseInt(document.getElementById('autorId').value),
-    categoriaId: parseInt(document.getElementById('categoriaId').value)
+    titulo: titulo,
+    autorId: autorId,
+    categoriaId: categoriaId
   };
 
   const id = document.getElementById('libroId').value;
-
   const method = id ? 'PUT' : 'POST';
   const url = id ? `${apiUrl}/${id}` : apiUrl;
 
@@ -69,6 +77,7 @@ function guardarLibro() {
       alert('❌ Error al guardar libro:\n' + err.message);
     });
 }
+
 
 function editarLibro(id, titulo, autorId, categoriaId) {
   document.getElementById('libroId').value = id;
