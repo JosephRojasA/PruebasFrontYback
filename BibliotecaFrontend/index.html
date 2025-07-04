@@ -4,60 +4,64 @@
   <meta charset="UTF-8">
   <title>📚 Biblioteca Visual</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <!-- Bootstrap 5 -->
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  
-  <!-- Estilos personalizados opcionales -->
   <link href="css/estilos.css" rel="stylesheet">
 </head>
 
 <body class="container py-4">
+  <div class="mb-3 text-end">
+    <a href="crud_autores_categorias.html" class="btn btn-outline-secondary">⚙️ Gestión de Autores y Categorías</a>
+  </div>
+
   <h1 class="text-center mb-4">📚 Biblioteca API - Visual</h1>
 
-  <!-- Navegación por pestañas -->
+  <!-- Navegación -->
   <ul class="nav nav-tabs mb-3">
     <li class="nav-item"><a class="nav-link active" href="#" onclick="mostrar('libros')">📖 Libros</a></li>
     <li class="nav-item"><a class="nav-link" href="#" onclick="mostrar('autores')">✍️ Autores</a></li>
     <li class="nav-item"><a class="nav-link" href="#" onclick="mostrar('categorias')">🏷️ Categorías</a></li>
+    <li class="nav-item"><a class="nav-link" href="crud_autores_categorias.html">⚙️ Gestión Avanzada</a></li>
   </ul>
 
-  <!-- Sección: Libros -->
+  <!-- Libros -->
   <div id="seccion-libros" class="mt-3">
     <h3>📖 Gestión de Libros</h3>
-    <button class="btn btn-success mb-2" onclick="cargarLibros()">🔄 Ver libros</button>
-
-    <!-- Formulario para crear/editar libros -->
     <form id="form-libro" class="mb-3">
       <div class="row g-2">
+        <input type="hidden" id="libroId">
         <div class="col-md-4">
-          <input type="text" id="titulo" class="form-control" placeholder="Título del libro" required />
+          <input type="text" id="titulo" class="form-control" placeholder="Título del libro" required>
         </div>
         <div class="col-md-3">
-          <input type="number" id="autorId" class="form-control" placeholder="ID Autor" required />
+          <select id="autorId" class="form-select" required>
+            <option value="">Seleccione un autor</option>
+          </select>
         </div>
         <div class="col-md-3">
-          <input type="number" id="categoriaId" class="form-control" placeholder="ID Categoría" required />
+          <select id="categoriaId" class="form-select" required>
+            <option value="">Seleccione una categoría</option>
+          </select>
         </div>
         <div class="col-md-2">
-          <button type="button" id="btn-guardar" class="btn btn-primary w-100" onclick="agregarLibro()">💾 Guardar</button>
+          <button type="button" class="btn btn-primary w-100" onclick="guardarLibro()">💾 Guardar</button>
         </div>
       </div>
     </form>
-
+    <button class="btn btn-success mb-2" onclick="cargarLibros()">🔄 Ver libros</button>
     <div id="lista-libros" class="table-responsive"></div>
   </div>
 
-  <!-- Sección: Autores -->
+  <!-- Autores -->
   <div id="seccion-autores" class="mt-3 d-none">
-    <h3>✍️ Gestión de Autores</h3>
+    <h3>✍️ Lista de Autores</h3>
     <button class="btn btn-success mb-2" onclick="cargarAutores()">🔄 Ver autores</button>
     <div id="lista-autores" class="table-responsive"></div>
   </div>
 
-  <!-- Sección: Categorías -->
+  <!-- Categorías -->
   <div id="seccion-categorias" class="mt-3 d-none">
-    <h3>🏷️ Gestión de Categorías</h3>
+    <h3>🏷️ Lista de Categorías</h3>
     <button class="btn btn-success mb-2" onclick="cargarCategorias()">🔄 Ver categorías</button>
     <div id="lista-categorias" class="table-responsive"></div>
   </div>
@@ -67,11 +71,16 @@
   <script src="js/autores.js"></script>
   <script src="js/categorias.js"></script>
   <script>
-    // Función para cambiar de pestaña
     function mostrar(nombre) {
       document.querySelectorAll('div[id^="seccion"]').forEach(div => div.classList.add('d-none'));
       document.getElementById(`seccion-${nombre}`).classList.remove('d-none');
     }
+
+    // Llenar selects cuando carga la página
+    document.addEventListener('DOMContentLoaded', () => {
+      fetchAutoresSelect();
+      fetchCategoriasSelect();
+    });
   </script>
 </body>
 </html>
