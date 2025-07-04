@@ -1,6 +1,9 @@
-public class Categoria
+namespace BibliotecaAPI.Models
 {
-    public int CategoriaId { get; set; }
-    public string Nombre { get; set; } = default!;
-    public List<Libro> Libros { get; set; } = new();
+    public class Categoria
+    {
+        public int CategoriaId { get; set; }
+        public string Nombre { get; set; } = default!;
+        public List<Libro> Libros { get; set; } = new();
+    }
 }
