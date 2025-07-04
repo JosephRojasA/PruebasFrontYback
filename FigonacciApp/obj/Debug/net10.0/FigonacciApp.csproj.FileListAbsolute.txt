@@ -1,0 +1,15 @@
+C:\Users\EQUIPO 155\Documents\Joseph Rojas\PruebasFrontyBack\PruebasFrontYback\FigonacciApp\bin\Debug\net10.0\FigonacciApp.exe
+C:\Users\EQUIPO 155\Documents\Joseph Rojas\PruebasFrontyBack\PruebasFrontYback\FigonacciApp\bin\Debug\net10.0\FigonacciApp.deps.json
+C:\Users\EQUIPO 155\Documents\Joseph Rojas\PruebasFrontyBack\PruebasFrontYback\FigonacciApp\bin\Debug\net10.0\FigonacciApp.runtimeconfig.json
+C:\Users\EQUIPO 155\Documents\Joseph Rojas\PruebasFrontyBack\PruebasFrontYback\FigonacciApp\bin\Debug\net10.0\FigonacciApp.dll
+C:\Users\EQUIPO 155\Documents\Joseph Rojas\PruebasFrontyBack\PruebasFrontYback\FigonacciApp\bin\Debug\net10.0\FigonacciApp.pdb
+C:\Users\EQUIPO 155\Documents\Joseph Rojas\PruebasFrontyBack\PruebasFrontYback\FigonacciApp\obj\Debug\net10.0\FigonacciApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\EQUIPO 155\Documents\Joseph Rojas\PruebasFrontyBack\PruebasFrontYback\FigonacciApp\obj\Debug\net10.0\FigonacciApp.AssemblyInfoInputs.cache
+C:\Users\EQUIPO 155\Documents\Joseph Rojas\PruebasFrontyBack\PruebasFrontYback\FigonacciApp\obj\Debug\net10.0\FigonacciApp.AssemblyInfo.cs
+C:\Users\EQUIPO 155\Documents\Joseph Rojas\PruebasFrontyBack\PruebasFrontYback\FigonacciApp\obj\Debug\net10.0\FigonacciApp.csproj.CoreCompileInputs.cache
+C:\Users\EQUIPO 155\Documents\Joseph Rojas\PruebasFrontyBack\PruebasFrontYback\FigonacciApp\obj\Debug\net10.0\FigonacciApp.sourcelink.json
+C:\Users\EQUIPO 155\Documents\Joseph Rojas\PruebasFrontyBack\PruebasFrontYback\FigonacciApp\obj\Debug\net10.0\FigonacciApp.dll
+C:\Users\EQUIPO 155\Documents\Joseph Rojas\PruebasFrontyBack\PruebasFrontYback\FigonacciApp\obj\Debug\net10.0\refint\FigonacciApp.dll
+C:\Users\EQUIPO 155\Documents\Joseph Rojas\PruebasFrontyBack\PruebasFrontYback\FigonacciApp\obj\Debug\net10.0\FigonacciApp.pdb
+C:\Users\EQUIPO 155\Documents\Joseph Rojas\PruebasFrontyBack\PruebasFrontYback\FigonacciApp\obj\Debug\net10.0\FigonacciApp.genruntimeconfig.cache
+C:\Users\EQUIPO 155\Documents\Joseph Rojas\PruebasFrontyBack\PruebasFrontYback\FigonacciApp\obj\Debug\net10.0\ref\FigonacciApp.dll
