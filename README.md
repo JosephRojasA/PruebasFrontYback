@@ -23,7 +23,7 @@ Una aplicación de gestión documental construida con React 18, Vite, TypeScript
 ## 🛠️ Instalación y ejecución
 
 ```bash
-git clone https://github.com/tu-usuario/document-manager.git
+git clone https://github.com/JosephRojasA/PruebasFrontYback.git
 cd document-manager
 npm install
 npm run dev
