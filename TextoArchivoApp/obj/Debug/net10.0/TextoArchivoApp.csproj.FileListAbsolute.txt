@@ -1,0 +1,15 @@
+C:\Users\EQUIPO 155\Documents\Joseph Rojas\PruebasFrontyBack\PruebasFrontYback\TextoArchivoApp\bin\Debug\net10.0\TextoArchivoApp.exe
+C:\Users\EQUIPO 155\Documents\Joseph Rojas\PruebasFrontyBack\PruebasFrontYback\TextoArchivoApp\bin\Debug\net10.0\TextoArchivoApp.deps.json
+C:\Users\EQUIPO 155\Documents\Joseph Rojas\PruebasFrontyBack\PruebasFrontYback\TextoArchivoApp\bin\Debug\net10.0\TextoArchivoApp.runtimeconfig.json
+C:\Users\EQUIPO 155\Documents\Joseph Rojas\PruebasFrontyBack\PruebasFrontYback\TextoArchivoApp\bin\Debug\net10.0\TextoArchivoApp.dll
+C:\Users\EQUIPO 155\Documents\Joseph Rojas\PruebasFrontyBack\PruebasFrontYback\TextoArchivoApp\bin\Debug\net10.0\TextoArchivoApp.pdb
+C:\Users\EQUIPO 155\Documents\Joseph Rojas\PruebasFrontyBack\PruebasFrontYback\TextoArchivoApp\obj\Debug\net10.0\TextoArchivoApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\EQUIPO 155\Documents\Joseph Rojas\PruebasFrontyBack\PruebasFrontYback\TextoArchivoApp\obj\Debug\net10.0\TextoArchivoApp.AssemblyInfoInputs.cache
+C:\Users\EQUIPO 155\Documents\Joseph Rojas\PruebasFrontyBack\PruebasFrontYback\TextoArchivoApp\obj\Debug\net10.0\TextoArchivoApp.AssemblyInfo.cs
+C:\Users\EQUIPO 155\Documents\Joseph Rojas\PruebasFrontyBack\PruebasFrontYback\TextoArchivoApp\obj\Debug\net10.0\TextoArchivoApp.csproj.CoreCompileInputs.cache
+C:\Users\EQUIPO 155\Documents\Joseph Rojas\PruebasFrontyBack\PruebasFrontYback\TextoArchivoApp\obj\Debug\net10.0\TextoArchivoApp.sourcelink.json
+C:\Users\EQUIPO 155\Documents\Joseph Rojas\PruebasFrontyBack\PruebasFrontYback\TextoArchivoApp\obj\Debug\net10.0\TextoArchivoApp.dll
+C:\Users\EQUIPO 155\Documents\Joseph Rojas\PruebasFrontyBack\PruebasFrontYback\TextoArchivoApp\obj\Debug\net10.0\refint\TextoArchivoApp.dll
+C:\Users\EQUIPO 155\Documents\Joseph Rojas\PruebasFrontyBack\PruebasFrontYback\TextoArchivoApp\obj\Debug\net10.0\TextoArchivoApp.pdb
+C:\Users\EQUIPO 155\Documents\Joseph Rojas\PruebasFrontyBack\PruebasFrontYback\TextoArchivoApp\obj\Debug\net10.0\TextoArchivoApp.genruntimeconfig.cache
+C:\Users\EQUIPO 155\Documents\Joseph Rojas\PruebasFrontyBack\PruebasFrontYback\TextoArchivoApp\obj\Debug\net10.0\ref\TextoArchivoApp.dll
