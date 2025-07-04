@@ -1,41 +1,69 @@
-const API_AUTOR = 'http://localhost:5141/api/Autores';
+const apiAutores = 'http://localhost:5141/api/Autores';
 
 function cargarAutoresCRUD() {
-  fetch(API_AUTOR)
+  fetch(apiAutores)
     .then(res => res.json())
     .then(data => {
-      let tabla = '<table class="table table-bordered"><thead><tr><th>ID</th><th>Nombre</th><th>Acciones</th></tr></thead><tbody>';
-      data.forEach(autor => {
-        tabla += `<tr>
-                    <td>${autor.id}</td>
-                    <td>${autor.nombre}</td>
-                    <td>
-                      <button class="btn btn-warning btn-sm" onclick="editarAutor(${autor.id}, '${autor.nombre}')">✏️</button>
-                      <button class="btn btn-danger btn-sm" onclick="eliminarAutor(${autor.id})">🗑️</button>
-                    </td>
-                  </tr>`;
-      });
-      tabla += '</tbody></table>';
+      const tabla = `
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${data.map(autor => `
+              <tr>
+                <td>${autor.autorId}</td>
+                <td>${autor.nombre}</td>
+                <td>
+                  <button class="btn btn-sm btn-warning" onclick="editarAutor(${autor.autorId}, '${autor.nombre}')">✏️</button>
+                  <button class="btn btn-sm btn-danger" onclick="eliminarAutor(${autor.autorId})">🗑️</button>
+                </td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      `;
       document.getElementById('tabla-autores').innerHTML = tabla;
-    });
+    })
+    .catch(err => console.error('Error al cargar autores:', err));
 }
 
 function guardarAutor() {
   const id = document.getElementById('autorId').value;
   const nombre = document.getElementById('nombreAutor').value;
 
-  const autor = { nombre };
+  if (!nombre.trim()) {
+    alert("⚠️ El nombre del autor es obligatorio.");
+    return;
+  }
+
+  const autor = { autorId: parseInt(id || 0), nombre };
+
   const method = id ? 'PUT' : 'POST';
-  const url = id ? `${API_AUTOR}/${id}` : API_AUTOR;
+  const url = id ? `${apiAutores}/${id}` : apiAutores;
 
   fetch(url, {
-    method,
+    method: method,
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(autor)
-  }).then(() => {
-    document.getElementById('form-autor').reset();
-    cargarAutoresCRUD();
-  });
+  })
+    .then(res => {
+      if (!res.ok) return res.text().then(text => { throw new Error(text); });
+      return res.json();
+    })
+    .then(() => {
+      alert('✅ Autor guardado correctamente');
+      document.getElementById('form-autor').reset();
+      cargarAutoresCRUD();
+    })
+    .catch(err => {
+      console.error('Error al guardar autor:', err);
+      alert('❌ Error al guardar autor:\n' + err.message);
+    });
 }
 
 function editarAutor(id, nombre) {
@@ -44,8 +72,19 @@ function editarAutor(id, nombre) {
 }
 
 function eliminarAutor(id) {
-  if (confirm('¿Deseas eliminar este autor?')) {
-    fetch(`${API_AUTOR}/${id}`, { method: 'DELETE' })
-      .then(() => cargarAutoresCRUD());
-  }
+  if (!confirm('¿Seguro que deseas eliminar este autor?')) return;
+
+  fetch(`${apiAutores}/${id}`, { method: 'DELETE' })
+    .then(res => {
+      if (!res.ok) throw new Error('Error al eliminar');
+      return res.text();
+    })
+    .then(() => {
+      alert('🗑️ Autor eliminado correctamente');
+      cargarAutoresCRUD();
+    })
+    .catch(err => {
+      console.error('Error al eliminar autor:', err);
+      alert('❌ No se pudo eliminar el autor');
+    });
 }
