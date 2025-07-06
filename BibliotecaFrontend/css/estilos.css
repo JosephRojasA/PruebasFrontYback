@@ -1,28 +1,59 @@
 body {
-  background-color: #f8f9fa;
+  background: #f4f6f9;
   font-family: 'Segoe UI', sans-serif;
 }
 
-h1, h3 {
-  color: #094e1d;
+.titulo-principal {
+  background-color: #003366;
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
-table {
-  background-color: #fff;
+table.table {
+  background-color: white;
+  border-radius: 6px;
+  overflow: hidden;
 }
 
-thead {
-  background-color: #d4edda;
+table.table th {
+  background-color: #004080;
+  color: #fff;
+  text-align: center;
 }
 
-th, td {
-  vertical-align: middle !important;
+table.table td {
+  vertical-align: middle;
+  text-align: center;
 }
 
-.btn {
-  font-weight: 500;
+form input,
+form select {
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
-input::placeholder {
-  color: #6c757d;
+form .btn-primary {
+  background-color: #004080;
+  border: none;
+}
+
+form .btn-primary:hover {
+  background-color: #003366;
+}
+
+button.btn-warning {
+  color: #fff;
+  background-color: #ffc107;
+  border-color: #ffc107;
+}
+
+button.btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.shadow-sm {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 }
