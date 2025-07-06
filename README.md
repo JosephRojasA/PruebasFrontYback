@@ -41,7 +41,7 @@ Si no lo tienes, descárgalo desde: [https://dotnet.microsoft.com/en-us/download
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/tu-repositorio.git
+git clone https://github.com/JosephRojasA/PruebasFrontYback.git
 cd tu-repositorio
 ```
 
