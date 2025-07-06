@@ -2656,31 +2656,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\EQUIPO 155\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\kidrin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\EQUIPO 155\\Documents\\Joseph Rojas\\PruebasFrontyBack\\PruebasFrontYback\\BibliotecaAPI\\BibliotecaAPI.csproj",
+      "projectUniqueName": "D:\\SENA\\PGD\\Pruebas\\PruebasFrontYback\\BibliotecaAPI\\BibliotecaAPI.csproj",
       "projectName": "BibliotecaAPI",
-      "projectPath": "C:\\Users\\EQUIPO 155\\Documents\\Joseph Rojas\\PruebasFrontyBack\\PruebasFrontYback\\BibliotecaAPI\\BibliotecaAPI.csproj",
-      "packagesPath": "C:\\Users\\EQUIPO 155\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\EQUIPO 155\\Documents\\Joseph Rojas\\PruebasFrontyBack\\PruebasFrontYback\\BibliotecaAPI\\obj\\",
+      "projectPath": "D:\\SENA\\PGD\\Pruebas\\PruebasFrontYback\\BibliotecaAPI\\BibliotecaAPI.csproj",
+      "packagesPath": "C:\\Users\\kidrin\\.nuget\\packages\\",
+      "outputPath": "D:\\SENA\\PGD\\Pruebas\\PruebasFrontYback\\BibliotecaAPI\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\EQUIPO 155\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\kidrin\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

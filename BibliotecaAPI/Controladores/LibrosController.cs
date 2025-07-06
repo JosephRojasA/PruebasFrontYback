@@ -1,7 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using BibliotecaAPI.Models;
 
-namespace BibliotecaAPI.Controladores
+namespace BibliotecaAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -14,20 +15,60 @@ namespace BibliotecaAPI.Controladores
             _context = context;
         }
 
-        // GET: api/Libros
+        // GET
         [HttpGet]
-        public ActionResult<IEnumerable<Libro>> GetLibros()
+        public async Task<ActionResult<IEnumerable<Libro>>> GetLibros()
         {
-            return _context.Libros.ToList();
+            return await _context.Libros
+                .Include(l => l.Autor)
+                .Include(l => l.Categoria)
+                .ToListAsync();
         }
 
-        // POST: api/Libros
+        // POST
         [HttpPost]
-        public ActionResult<Libro> PostLibro(Libro libro)
+        public async Task<ActionResult<Libro>> PostLibro(Libro libro)
         {
             _context.Libros.Add(libro);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetLibros), new { id = libro.LibroId }, libro);
+        }
+
+        // ✅ PUT (Actualizar)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutLibro(int id, Libro libro)
+        {
+            if (id != libro.LibroId)
+                return BadRequest();
+
+            _context.Entry(libro).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!_context.Libros.Any(e => e.LibroId == id))
+                    return NotFound();
+                else
+                    throw;
+            }
+
+            return NoContent();
+        }
+
+        // ✅ DELETE (Eliminar)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteLibro(int id)
+        {
+            var libro = await _context.Libros.FindAsync(id);
+            if (libro == null)
+                return NotFound();
+
+            _context.Libros.Remove(libro);
+            await _context.SaveChangesAsync();
+            return NoContent();
         }
     }
 }

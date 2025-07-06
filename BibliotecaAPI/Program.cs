@@ -1,6 +1,7 @@
 using BibliotecaAPI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,8 +20,12 @@ builder.Services.AddCors(options =>
 builder.Services.AddDbContext<BibliotecaContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("BibliotecaConnection")));
 
-// ✅ Agrega soporte para controladores
-builder.Services.AddControllers();
+// ✅ Agrega soporte para controladores y evita ciclos de referencia
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+    options.JsonSerializerOptions.WriteIndented = true;
+});
 
 // ✅ Configura Swagger
 builder.Services.AddEndpointsApiExplorer();
@@ -49,7 +54,7 @@ if (app.Environment.IsDevelopment())
     });
 }
 
-// ✅ Middleware para autorización
+// ✅ Middleware para autorización (puedes agregar autenticación si es necesario)
 app.UseAuthorization();
 
 // ✅ Mapeo de rutas a controladores
