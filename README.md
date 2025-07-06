@@ -1,8 +1,8 @@
-Claro. Aquí tienes un archivo `README.md` **completo y listo para copiar y pegar**, con instrucciones claras para instalar y ejecutar tu proyecto **BibliotecaAPI** usando la rama `GestionBibliotecaPruebaBack`:
+
 
 ---
 
-````markdown
+
 # 📚 Biblioteca API - Gestión de Libros, Autores y Categorías
 
 Proyecto de API REST desarrollada en **.NET 6/7/10** con **SQLite** para la gestión básica de una biblioteca. Incluye operaciones CRUD para:
@@ -19,7 +19,7 @@ Antes de ejecutar el proyecto, asegúrate de tener instalado:
    Puedes verificar con:  
    ```bash
    dotnet --version
-````
+
 
 Si no lo tienes, descárgalo desde: [https://dotnet.microsoft.com/en-us/download](https://dotnet.microsoft.com/en-us/download)
 
