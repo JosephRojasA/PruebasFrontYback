@@ -30,7 +30,11 @@ const DocumentList = () => {
   useEffect(() => {
     loadDocuments();
     loadTypes();
-  }, []);
+ const handler = () => loadDocuments(); // cuando llegue un nuevo documento
+  window.addEventListener('document-added', handler);
+
+  return () => window.removeEventListener('document-added', handler);
+}, []);
 
   const loadDocuments = () => {
     const stored = localStorage.getItem('documents');
@@ -163,10 +167,10 @@ const DocumentList = () => {
                     margin="normal"
                     value={selectedDoc.name}
                     onChange={(e) =>
-                      setSelectedDoc((prev) => prev ? { ...prev, type: e.target.value } : prev)
+                      setSelectedDoc((prev) => prev ? { ...prev, name: e.target.value } : prev)
                     }
-
                   />
+
 
                   <FormControl fullWidth margin="normal">
                     <InputLabel id="select-type-label">Tipo</InputLabel>

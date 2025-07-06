@@ -67,43 +67,47 @@ const DocumentForm = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError('');
+  e.preventDefault();
+  setError('');
 
-    if (!form.name || !form.type || !form.date || !form.description || !form.file) {
-      setError('Todos los campos son obligatorios.');
-      return;
-    }
+  if (!form.name || !form.type || !form.date || !form.description || !form.file) {
+    setError('Todos los campos son obligatorios.');
+    return;
+  }
 
-    if (!validateFile(form.file)) {
-      setError('Formato de archivo no válido. Usa PDF, JPG o PNG.');
-      return;
-    }
+  if (!validateFile(form.file)) {
+    setError('Formato de archivo no válido. Usa PDF, JPG o PNG.');
+    return;
+  }
 
-    const fileBase64 = await toBase64(form.file);
+  const fileBase64 = await toBase64(form.file);
 
-    const newDocument: DocumentData = {
-      name: form.name,
-      type: form.type,
-      date: form.date,
-      description: form.description,
-      file: fileBase64,
-      status: 'Activo',
-    };
-
-    const storedDocs = JSON.parse(localStorage.getItem('documents') || '[]');
-    storedDocs.push(newDocument);
-    localStorage.setItem('documents', JSON.stringify(storedDocs));
-
-    alert('Documento guardado correctamente ✅');
-    setForm({
-      name: '',
-      type: '',
-      date: '',
-      description: '',
-      file: null,
-    });
+  const newDocument: DocumentData = {
+    name: form.name,
+    type: form.type,
+    date: form.date,
+    description: form.description,
+    file: fileBase64,
+    status: 'Activo',
   };
+
+  const storedDocs = JSON.parse(localStorage.getItem('documents') || '[]');
+  storedDocs.push(newDocument);
+  localStorage.setItem('documents', JSON.stringify(storedDocs));
+
+  // 🚨 ESTA LÍNEA ES LA CLAVE
+  window.dispatchEvent(new Event('document-added'));
+
+  alert('Documento guardado correctamente ✅');
+  setForm({
+    name: '',
+    type: '',
+    date: '',
+    description: '',
+    file: null,
+  });
+};
+
 
   return (
     <Box component="form" onSubmit={handleSubmit} sx={{ maxWidth: 500, mx: 'auto', display: 'flex', flexDirection: 'column', gap: 2 }}>
